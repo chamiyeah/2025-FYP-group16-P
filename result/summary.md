@@ -20,6 +20,9 @@ This project focuses on preprocessing skin lesion images by detecting and removi
 By ensuring hair-free lesion images, this preprocessing step enhances the accuracy of feature extraction and melanoma classification in subsequent stages of the project.
 
 ## Background of the problem <br>
+Skin cancer, particularly melanoma, is a growing health concern, requiring early and accurate detection for effective treatment. Dermoscopic images are widely used in diagnosing skin lesions, but hair occlusion can interfere with feature extraction and classification accuracy.
+
+In this project, we analyze 100 skin lesion images, aiming to detect cancerous cells by applying image processing techniques. A key preprocessing step is hair removal, which enhances lesion visibility and ensures accurate segmentation. By extracting relevant features from the cleaned images, we improve the reliability of automated skin cancer classification.
 
 ## Methodology 
 ### Architecture <br>
