@@ -11,8 +11,18 @@ mariagasiorowska - Maria Beata Gasiorowska <br>
 chamiyeah - Champaka M W Ganehi Arachchilage <br>
 Hoang Nam Tran - <br>
 
-Hello
+## Overview
+## Bckground of the problem <br>
 
+## Methodology 
+### Architecture <br>
+
+## Usage
+### Requirements <br>
+
+## Features
+
+## Results and Conclutions 
 
 
 
