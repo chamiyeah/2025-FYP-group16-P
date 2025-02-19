@@ -3,7 +3,7 @@ from os.path import join
 import matplotlib.pyplot as plt
 
 from util.img_util import readImageFile, saveImageFile
-from util.inpaint_util import removeHair
+from util.inpainting_sample import remove_hair
 
 file_path = './data/example.jpg'
 save_dir = './result'
@@ -12,7 +12,7 @@ save_dir = './result'
 img_rgb, img_gray = readImageFile(file_path)
 
 # apply hair removal
-blackhat, thresh, img_out = removeHair(img_rgb, img_gray, kernel_size=5, threshold=10)
+blackhat, thresh, img_out = remove_hair(img_rgb, img_gray, kernel_size=5, threshold=10)
 
 # plot the images
 plt.figure(figsize=(15, 10))
