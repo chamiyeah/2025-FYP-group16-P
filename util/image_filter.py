@@ -31,3 +31,4 @@ with open(output_csv, mode='w', newline='') as file:
         writer.writerow([image])
 
 print(f"Filtered images have been copied to {output_dir} and listed in {output_csv}")
+# after alterations this should return the file path of the filtered images instead of this message
