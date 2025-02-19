@@ -12,7 +12,8 @@ chamiyeah - Champaka M W Ganehi Arachchilage <br>
 Hoang Nam Tran - <br>
 
 ## Overview
-## Bckground of the problem <br>
+This project focuses on
+## Background of the problem <br>
 
 ## Methodology 
 ### Architecture <br>
