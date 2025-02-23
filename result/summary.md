@@ -41,6 +41,7 @@ Libraries Used
 * Custom Utility Modules (util.img_util, util.inpaint_util) – For reading, saving, and processing images.
 
 ## Features
+We were given the first script, which filters and copies images based on labels in a CSV file. Our task was to enhance it to improve the filtering process for skin cell images.
 
 ## Results and Conclutions 
 
