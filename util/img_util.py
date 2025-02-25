@@ -4,7 +4,6 @@ import shutil
 import csv
 import cv2
 
-
 def readImageFile(file_path):
     """Reads an image and returns both RGB and grayscale versions."""
     
@@ -41,10 +40,10 @@ def enhance_image(img_gray):
 
 def filter_images(data_dir, csv_file, output_csv, output_dir):
     """Filters images based on our group label and saves them to output directory."""
-    #folder check for if exist already
+    # Check if folder already exists
     os.makedirs(output_dir, exist_ok=True)
 
-    #filter images acording to the csv
+    # Filter images acording to the group name
     filtered_images = []
     with open(csv_file, mode='r') as file:
         reader = csv.reader(file)
@@ -54,7 +53,7 @@ def filter_images(data_dir, csv_file, output_csv, output_dir):
                 filtered_images.append(filename)
                 shutil.copy(os.path.join(data_dir, filename), output_dir)
 
-    #create csv with filterd image file names
+    # Create csv with filterd image file names
     with open(output_csv, mode='w', newline='') as file:
         writer = csv.writer(file)
         for image in filtered_images:
@@ -68,7 +67,7 @@ class ImageDataLoader:
         self.shuffle = shuffle
         self.transform = transform
 
-        # get a sorted list of all image files in the directory
+        # Get a sorted list of all image files in the directory
         self.file_list = sorted(
             [os.path.join(directory, f) for f in os.listdir(directory) if
              f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff'))]

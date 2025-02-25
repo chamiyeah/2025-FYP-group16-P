@@ -18,10 +18,10 @@ def process_filtered_images(filtered_dir, final_output_dir, enhanced_dir):
     os.makedirs(enhanced_dir, exist_ok=True)
 
     loader = ImageDataLoader(filtered_dir)
-    all_images = []  # List to store only 10 images for final summary
+    all_images = []  # List to store only 5 images for final summary
 
     for idx, file_path in enumerate(loader.file_list):
-        if idx >= 5:  # ✅ Stop after 5 images
+        if idx >= 5:  # Stop after 5 images
             break
 
         img_rgb, img_gray = readImageFile(file_path)
@@ -31,20 +31,20 @@ def process_filtered_images(filtered_dir, final_output_dir, enhanced_dir):
             print(f"Skipping {img_filename}, could not read image.")
             continue
 
-        # Step 1: Enhance image before hair removal
+        # Enhance image
         img_enhanced = enhance_image(img_gray)
 
-        # Step 2: Apply hair removal
+        # Apply hair removal
         _, _, img_no_hair = removeHair(img_rgb, img_enhanced)
 
-        # Step 3: Save processed image
+        # Save processed image
         save_path = os.path.join(final_output_dir, img_filename)
         saveImageFile(img_no_hair, save_path)
 
-        # Step 4: Collect images for the final summary image (limit to 10)
+        # Collect images for the final summary image)
         all_images.append((img_rgb, img_enhanced, img_no_hair, img_filename))
 
-    # Step 5: Save the final single comparison image
+    # Save the final single comparison image
     summary_image_path = os.path.join(enhanced_dir, "summary_collage.png")
     plot_before_after(all_images, summary_image_path)
 
@@ -52,12 +52,12 @@ def process_filtered_images(filtered_dir, final_output_dir, enhanced_dir):
 
 
 def plot_before_after(all_images, save_path):
-    """Creates a side-by-side comparison of the first 10 images."""
+    """Creates a side-by-side comparison of the first 5 images."""
 
-    num_images = min(len(all_images), 5)  # ✅ Limit to 10 images
+    num_images = min(len(all_images), 5)  # Limit to 5 images
     fig, axes = plt.subplots(num_images, 3, figsize=(12, num_images * 3))  # 3 columns (Original | Enhanced | Hair Removed)
 
-    for idx, (original, enhanced, no_hair, filename) in enumerate(all_images[:10]):  # ✅ Only first 10
+    for idx, (original, enhanced, no_hair, filename) in enumerate(all_images[:5]):
         # Left column: Original Image
         axes[idx, 0].imshow(original)
         axes[idx, 0].set_title(f"Original: {filename}")
