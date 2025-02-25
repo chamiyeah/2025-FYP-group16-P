@@ -1,6 +1,6 @@
 import cv2
 
-def removeHair(img_org, img_gray, kernel_size=25, threshold=10, radius=3):
+def removeHair(img_org, img_gray, kernel_size=30, threshold=15, radius=5):
     # kernel for the morphological filtering
     kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (kernel_size, kernel_size))
 

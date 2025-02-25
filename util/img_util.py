@@ -1,6 +1,7 @@
 import os
 import random
-
+import shutil
+import csv
 import cv2
 
 
@@ -38,6 +39,28 @@ def enhance_image(img_gray):
 
     return enhanced
 
+def filter_images(data_dir, csv_file, output_csv, output_dir):
+    """Filters images based on our group label and saves them to output directory."""
+    #folder check for if exist already
+    os.makedirs(output_dir, exist_ok=True)
+
+    #filter images acording to the csv
+    filtered_images = []
+    with open(csv_file, mode='r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            filename, label = row
+            if label == 'P':
+                filtered_images.append(filename)
+                shutil.copy(os.path.join(data_dir, filename), output_dir)
+
+    #create csv with filterd image file names
+    with open(output_csv, mode='w', newline='') as file:
+        writer = csv.writer(file)
+        for image in filtered_images:
+            writer.writerow([image])
+
+    return output_dir
 
 class ImageDataLoader:
     def __init__(self, directory, shuffle=False, transform=None):
@@ -73,3 +96,6 @@ class ImageDataLoader:
                 img_gray = self.transform(img_gray)
 
             yield img_rgb, img_gray
+    
+
+
