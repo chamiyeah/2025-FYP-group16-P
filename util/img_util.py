@@ -5,19 +5,16 @@ import cv2
 
 
 def readImageFile(file_path):
-    # read image as an 8-bit array
+    """Reads an image and returns both RGB and grayscale versions."""
+    
     img_bgr = cv2.imread(file_path)
-
-    # convert to RGB
     img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
-
-    # convert the original image to grayscale
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
-
     return img_rgb, img_gray
 
 
 def saveImageFile(img_rgb, file_path):
+    """Saves an image after converting RGB to BGR format."""
     try:
         # convert BGR
         img_bgr = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2BGR)
@@ -31,6 +28,15 @@ def saveImageFile(img_rgb, file_path):
     except Exception as e:
         print(f"Error saving the image: {e}")
         return False
+
+def enhance_image(img_gray):
+    """Enhances image using Histogram Equalization and Bilateral Filtering."""
+    # Apply histogram equalization to improve contrast
+    equalized = cv2.equalizeHist(img_gray)
+    # Apply bilateral filtering to reduce noise while keeping edges
+    enhanced = cv2.bilateralFilter(equalized, d=9, sigmaColor=35, sigmaSpace=35)
+
+    return enhanced
 
 
 class ImageDataLoader:

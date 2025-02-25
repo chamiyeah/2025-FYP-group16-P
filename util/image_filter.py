@@ -4,6 +4,7 @@ import csv
 
 
 def filter_images(data_dir, csv_file, output_csv, output_dir):
+    """Filters images based on our group label and saves them to output directory."""
     #folder check for if exist already
     os.makedirs(output_dir, exist_ok=True)
 

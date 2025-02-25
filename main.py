@@ -1,8 +1,6 @@
 from os.path import join
-
 import matplotlib.pyplot as plt
-# import the image filter from the util folder, before I need to make it into a function and then call the function here.
-from util.img_util import readImageFile, saveImageFile
+from util.img_util import readImageFile, saveImageFile, enhance_image, ImageDataLoader
 from util.inpaint_util import removeHair
 
 file_path = './filtered_images/img_1967.png'
