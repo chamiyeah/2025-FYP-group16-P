@@ -32,13 +32,31 @@ Next, we apply our Python code to detect and remove hair, using morphological fi
 ## Usage
 To run the code, first install Python and the required libraries. Then, download the project files and place your skin lesion images in the data folder. Run the script to process the images, which will detect and remove hair. The results, including the cleaned images, will be saved in the result folder for further analysis.
 
-### Requirements <br>
-Libraries Used
-* OS – For handling file paths.
+### Prerequisites <br>
+Libraries Used: <br>
 * Matplotlib – For visualizing images.
 * OpenCV (cv2) – For image processing, including morphological operations and inpainting.
 * NumPy – For numerical operations and image array manipulations.
-* Custom Utility Modules (util.img_util, util.inpaint_util) – For reading, saving, and processing images.
+* Custom Utility Modules (util.img_util, util.inpaint_util) – For reading, saving, and processing images. <br> 
+<br>
+
+
+  1. Clone the repository:
+```bash
+git clone https://github.com/chamiyeah/2025-FYP-group16-P
+```
+
+  2. Install dependencies:
+   ```bash
+pip install -r requirements.txt
+  ```
+
+  3. Run the application:
+  ```bash
+python3 main.py
+```
+<br>
+
 
 ## Features
 We were given the first script, which filters and copies images based on labels in a CSV file. Our task was to enhance it to improve the filtering process for skin cell images.
