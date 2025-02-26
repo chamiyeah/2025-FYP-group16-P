@@ -173,3 +173,4 @@ cython_debug/
 /data
 /filtered_images
 .DS_Store
+/.qodo
