@@ -12,7 +12,7 @@ If using github.itu.dk, you need to download the repository and make your own.
 
 If you are using general Github, you can clone or fork the repository directly. If your usernames do not give sufficient hints as to who you are, you can tell the TAs how to match them. 
 
-Your repository MUST be named 2025-FYP-groupXX where XX is your group number. 
+Your repository MUST be named 2025-FYP-groupXX where XX is your group LETTER. 
 
 Look at the slides of the previous two weeks for details of the hand-in. 
 
