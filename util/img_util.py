@@ -1,23 +1,20 @@
 import os
 import random
-
+import shutil
+import csv
 import cv2
 
-
 def readImageFile(file_path):
-    # read image as an 8-bit array
+    """Reads an image and returns both RGB and grayscale versions."""
+    
     img_bgr = cv2.imread(file_path)
-
-    # convert to RGB
     img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
-
-    # convert the original image to grayscale
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
-
     return img_rgb, img_gray
 
 
 def saveImageFile(img_rgb, file_path):
+    """Saves an image after converting RGB to BGR format."""
     try:
         # convert BGR
         img_bgr = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2BGR)
@@ -32,6 +29,37 @@ def saveImageFile(img_rgb, file_path):
         print(f"Error saving the image: {e}")
         return False
 
+def enhance_image(img_gray):
+    """Enhances image using Histogram Equalization and Bilateral Filtering."""
+    # Apply histogram equalization to improve contrast
+    equalized = cv2.equalizeHist(img_gray)
+    # Apply bilateral filtering to reduce noise while keeping edges
+    enhanced = cv2.bilateralFilter(equalized, d=9, sigmaColor=35, sigmaSpace=35)
+
+    return enhanced
+
+def filter_images(data_dir, csv_file, output_csv, output_dir):
+    """Filters images based on our group label and saves them to output directory."""
+    # Check if folder already exists
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Filter images acording to the group name
+    filtered_images = []
+    with open(csv_file, mode='r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            filename, label = row
+            if label == 'P':
+                filtered_images.append(filename)
+                shutil.copy(os.path.join(data_dir, filename), output_dir)
+
+    # Create csv with filterd image file names
+    with open(output_csv, mode='w', newline='') as file:
+        writer = csv.writer(file)
+        for image in filtered_images:
+            writer.writerow([image])
+
+    return output_dir
 
 class ImageDataLoader:
     def __init__(self, directory, shuffle=False, transform=None):
@@ -39,7 +67,7 @@ class ImageDataLoader:
         self.shuffle = shuffle
         self.transform = transform
 
-        # get a sorted list of all image files in the directory
+        # Get a sorted list of all image files in the directory
         self.file_list = sorted(
             [os.path.join(directory, f) for f in os.listdir(directory) if
              f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff'))]
@@ -67,3 +95,6 @@ class ImageDataLoader:
                 img_gray = self.transform(img_gray)
 
             yield img_rgb, img_gray
+    
+
+
