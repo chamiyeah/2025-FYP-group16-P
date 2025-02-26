@@ -13,20 +13,21 @@ Hoang Nam Tran - NamTrank5 <br>
 ## Overview
 This project focuses on preprocessing skin lesion images by detecting and removing hair to improve cancer classification accuracy. The provided Python script performs the following steps:
 - Image Loading: Reads an input image in both RGB and grayscale formats.
+- Image Enhancing: Enhances an image using Histogram Equalization and Bilateral Filtering.
 - Hair Detection & Removal: Applies a morphological blackhat filter to detect hair, thresholds the result to create a binary mask, and removes hair artifacts using inpainting.
-- Visualization: Displays the original image, blackhat-transformed image, thresholded mask, and final inpainted image.
+- Visualization: Displays the original image, enhanced image, and final inpainted image.
 - Output Storage: Saves the processed image for further analysis.
 By ensuring hair-free lesion images, this preprocessing step enhances the accuracy of feature extraction and melanoma classification in subsequent stages of the project.
 
 ## Background of the problem <br>
 Skin cancer, particularly melanoma, is a growing health concern, requiring early and accurate detection for effective treatment. Dermoscopic images are widely used in diagnosing skin lesions, but hair occlusion can interfere with feature extraction and classification accuracy.
 
-In this project, we analyze 100 skin lesion images, aiming to detect cancerous cells by applying image processing techniques. A key preprocessing step is hair removal, which enhances lesion visibility and ensures accurate segmentation. By extracting relevant features from the cleaned images, we improve the reliability of automated skin cancer classification.
+In this project, we analyze skin lesion images, aiming to detect cancerous cells by applying image processing techniques. A key preprocessing step is hair removal, which enhances lesion visibility and ensures accurate segmentation. By extracting relevant features from the cleaned images, we improve the reliability of automated skin cancer classification.
 
 ## Methodology 
 We first manually annotate each of the 100 skin lesion images based on hair presence using a scale of 0 (no hair), 1 (some hair), and 2 (a lot of hair). These annotations are compiled into a CSV file to serve as a reference for evaluating our automated classification.
 
-Next, we apply our Python code to detect and remove hair, using morphological filtering and inpainting. The filtered images allow clearer visualization of the lesion, ensuring that our preprocessing aligns with the manual annotations and improves lesion analysis accuracy.
+Next, we apply our Python code to enhance the image using Histogram Equalization and Bilateral Filtering, then detect and remove hair using morphological filtering and inpainting. The filtered images allow clearer visualization of the lesion, ensuring that our preprocessing aligns with the manual annotations and improves lesion analysis accuracy.
 ### Architecture <br>
 
 ## Usage

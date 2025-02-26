@@ -2,7 +2,7 @@ from os.path import join
 import os
 import matplotlib.pyplot as plt
 from util.img_util import readImageFile, saveImageFile, enhance_image, ImageDataLoader, filter_images
-from util.inpaint_util import removeHair
+from util.inpaint import removeHair
 
 data_dir = "data"  # Folder containing all images
 csv_file = "data-student.csv"  # CSV with image group mappings
