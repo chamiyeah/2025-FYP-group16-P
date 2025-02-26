@@ -76,19 +76,19 @@ Since the variation of the attributes in the dataset makes it difficult to use a
 ### Hair Removal
 Using inpainting algorithm combined with morphological and blackhat filtering works best when provided with optimal parameters for threshold and radius for each sample image. When used in bulk, dynamically adjusting the parameters according to the manual or automated annotations. Following are some examples where the hair removal algorithm struggled when used the mean values for threshold and radius of the sample. <br>
 
- ![Fig 3. Summary Collage](/util/example2.jpg?raw=true)
- Fig 3. Detail loss from hair removal in extream scinarios.
+ ![Fig 2. Summary Collage](https://github.com/chamiyeah/2025-FYP-groupP/blob/Champ_Dev/util/img/example2.jpg?raw=true)
+ Fig 2. Detail loss from hair removal in extream scinarios.
 
- ![Fig 3. Summary Collage](/util/example1.jpg?raw=true)
- Fig 4. Additional artifacts generated in hair removal with slightly larger perimeter in enhanced image.
+ ![Fig 3. Summary Collage](https://github.com/chamiyeah/2025-FYP-groupP/blob/Champ_Dev/util/img/example1.jpg?raw=true)
+ Fig 3. Additional artifacts generated in hair removal with slightly larger perimeter in enhanced image.
 
 <br>
 
  ### Example Output
  Enhanced and Hair removed images sample.
 
-![Fig 2. Summary Collage](/util/summary_collage.png?raw=true)
-Fig 5. Enhanced and Hair removed images sample.
+![Fig 4. Summary Collage](https://github.com/chamiyeah/2025-FYP-groupP/blob/Champ_Dev/util/img/summary_collage.png?raw=true)
+Fig 4. Enhanced and Hair removed images sample.
  <br>
 
  Overall, the implemented segmentation technique good results on majority of the sample images. At the same time, the hair removal algorithm removes the pen marks, lines and other similar artifacts from the images, which makes it a great tool for segmentation.
