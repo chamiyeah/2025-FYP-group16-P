@@ -29,6 +29,7 @@ We first manually annotate each of the 100 skin lesion images based on hair pres
 
 Next, we apply our Python code to enhance the image using Histogram Equalization and Bilateral Filtering, then detect and remove hair using morphological filtering and inpainting. The filtered images allow clearer visualization of the lesion, ensuring that our preprocessing aligns with the manual annotations and improves lesion analysis accuracy.
 ### Architecture <br>
+![Fig 1. Architecture](https://github.com/chamiyeah/2025-FYP-groupP/blob/Champ_Dev/util/basic_architecture.jpg?raw=true)
 
 ## Usage
 To run the code, first install Python and the required libraries. Then, download the project files and place your skin lesion images in the data folder. Run the script to process the images, which will detect and remove hair. The results, including the cleaned images, will be saved in the result folder for further analysis.
