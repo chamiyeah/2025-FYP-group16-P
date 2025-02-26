@@ -3,47 +3,15 @@ import os
 import matplotlib.pyplot as plt
 from util.img_util import readImageFile, saveImageFile, enhance_image, ImageDataLoader, filter_images
 from util.inpaint import removeHair
-from tkinter import Tk, filedialog
+#from tkinter import Tk, filedialog
 
-#Dato loader old
-# data_dir = "data"  # Folder containing all images
-# csv_file = "data-student.csv"  # CSV with image group mappings
-# filtered_csv = "result/result.csv"  # New CSV with only our group's images
-# filtered_dir = "filtered_images"  # Folder for filtered images
-# final_output_dir = "result/final_no_hair_images"  # Folder for processed images
-# enhanced_dir = "result/enhanced_results"  # Folder to store before/after comparisons
-
-
-def select_files_and_dirs():
-    """Opens file dialogs to select the required files and directories."""
-    root = Tk()
-    root.withdraw()  # Hide the root window
-
-    root.title("Select Folder Containing All Images")
-    root.update()
-    data_dir = filedialog.askdirectory(title="Select Folder Containing All Images")
-
-    root.title("Select CSV File with Image Group Mappings")
-    root.update()
-    csv_file = filedialog.askopenfilename(title="Select CSV File with Image Group Mappings", filetypes=[("CSV Files", "*.csv")])
-
-    root.title("Save Filtered CSV As")
-    root.update()
-    filtered_csv = filedialog.asksaveasfilename(title="Save Filtered CSV As", defaultextension=".csv", filetypes=[("CSV Files", "*.csv")])
-
-    root.title("Select Folder for Filtered Images")
-    root.update()
-    filtered_dir = filedialog.askdirectory(title="Select Folder for Filtered Images")
-
-    root.title("Select Folder for Processed Images")
-    root.update()
-    final_output_dir = filedialog.askdirectory(title="Select Folder for Processed Images")
-
-    root.title("Select Folder to Store Before/After Comparisons")
-    root.update()
-    enhanced_dir = filedialog.askdirectory(title="Select Folder to Store Before/After Comparisons")
-    
-    return data_dir, csv_file, filtered_csv, filtered_dir, final_output_dir, enhanced_dir
+#Data Loader
+data_dir = "data"  # Folder containing all images
+csv_file = "data-student.csv"  # CSV with image group mappings
+filtered_csv = "result/result.csv"  # New CSV with only our group's images
+filtered_dir = "filtered_images"  # Folder for filtered images
+final_output_dir = "result/final_no_hair_images"  # Folder for processed images
+enhanced_dir = "result/enhanced_results"  # Folder to store before/after comparisons
 
 
 def process_filtered_images(filtered_dir, final_output_dir, enhanced_dir):
@@ -112,9 +80,7 @@ def plot_before_after(all_images, save_path):
     plt.close()
 
 def main():
-    print("Select the required files and directories...")
-    data_dir, csv_file, filtered_csv, filtered_dir, final_output_dir, enhanced_dir = select_files_and_dirs()
-
+    
     print("Filtering images...")
     filter_images(data_dir, csv_file, filtered_csv, filtered_dir)
     
