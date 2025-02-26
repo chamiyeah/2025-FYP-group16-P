@@ -1,9 +1,8 @@
 from os.path import join
 import os
 import matplotlib.pyplot as plt
-from util.img_util import readImageFile, saveImageFile, enhance_image, ImageDataLoader, filter_images
+from util.img_util import readImageFile, saveImageFile, enhance_image, ImageDataLoader, filter_images, plot_before_after
 from util.inpaint import removeHair
-from util.plotting import plot_before_after
 #from tkinter import Tk, filedialog
 
 #Data Loader
