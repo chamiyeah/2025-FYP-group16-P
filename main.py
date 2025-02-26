@@ -2,7 +2,7 @@ from os.path import join
 import os
 import matplotlib.pyplot as plt
 from util.img_util import readImageFile, saveImageFile, enhance_image, ImageDataLoader, filter_images
-from util.inpaint_util import removeHair
+from util.inpaint import removeHair
 from tkinter import Tk, filedialog
 
 #Dato loader old
