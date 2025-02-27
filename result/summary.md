@@ -1,4 +1,4 @@
-# Mandatory assignment - Projects in Data Science (2025) Group 16 - P
+# Mandatory assignment - Projects in Data Science (2025) Group P
 
 ## Segmentation and classification of skin lesions
 
@@ -28,7 +28,11 @@ In this project, we analyze skin lesion images, aiming to detect cancerous cells
 We first manually annotate each of the 100 skin lesion images based on hair presence using a scale of 0 (no hair), 1 (some hair), and 2 (a lot of hair). These annotations are compiled into a CSV file to serve as a reference for evaluating our automated classification.
 
 Next, we apply our Python code to enhance the image using Histogram Equalization and Bilateral Filtering, then detect and remove hair using morphological filtering and inpainting. The filtered images allow clearer visualization of the lesion, ensuring that our preprocessing aligns with the manual annotations and improves lesion analysis accuracy.
+
 ### Architecture <br>
+Following is the proposed preliminary architecture for the program. <br>
+
+![Fig 1. Architecture](https://github.com/chamiyeah/2025-FYP-groupP/blob/Champ_Dev/util/img/basic_architecture.jpg?raw=true)
 
 ## Usage
 To run the code, first install Python and the required libraries. Then, download the project files and place your skin lesion images in the data folder. Run the script to process the images, which will detect and remove hair. The results, including the cleaned images, will be saved in the result folder for further analysis.
@@ -67,6 +71,38 @@ To do this, we improved the code by turning the filtering logic into a function 
 With this improved structure, we can now modify the function to apply more advanced filtering techniques for skin cell images, such as checking for specific filenames, image properties, or additional criteria in the CSV file. This makes our project more adaptable for future improvements.
 
 ## Results and Conclusion
+
+
+### Dataset and Observations
+Provided dataset contains 2165 images of various skin leasions and the selected sample contains 100 images. The skin lesions varies in range of different sizes, colours, placement, obstructions such as hair and other attributes like pen marks and lines and even vignetting. 
+
+Since the variation of the attributes in the dataset makes it difficult to use a bulk image processing workflow with pre-defined parameters, it make sense to first process images using enhancing algorithm to equalize the images and analyse. Meanwhile, the histogram equalization and bi-lateral filtering provides consistent results thrughout the sample set with some expectations when it comes to protruding elements in the skin . These enhanced images have greater contrast which will makes the visual observations and defining the perimeter more accurate.
+
+### Hair Removal
+Using inpainting algorithm combined with morphological and blackhat filtering works best when provided with optimal parameters for threshold and radius for each sample image. When used in bulk, dynamically adjusting the parameters according to the manual or automated annotations. Following are some examples where the hair removal algorithm struggled when used the mean values for threshold and radius of the sample. <br>
+
+ ![Fig 2. Summary Collage](https://github.com/chamiyeah/2025-FYP-groupP/blob/Champ_Dev/util/img/example2.jpg?raw=true)
+ Fig 2. Detail loss from hair removal in extream scinarios.
+
+ ![Fig 3. Summary Collage](https://github.com/chamiyeah/2025-FYP-groupP/blob/Champ_Dev/util/img/example1.jpg?raw=true)
+ Fig 3. Additional artifacts generated in hair removal with slightly larger perimeter in enhanced image.
+
+<br>
+
+ ### Example Output
+ Enhanced and Hair removed images sample.
+
+![Fig 4. Summary Collage](https://github.com/chamiyeah/2025-FYP-groupP/blob/Champ_Dev/util/img/summary_collage.png?raw=true)
+Fig 4. Enhanced and Hair removed images sample.
+ <br>
+
+ Overall, the implemented segmentation technique good results on majority of the sample images. At the same time, the hair removal algorithm removes the pen marks, lines and other similar artifacts from the images, which makes it a great tool for segmentation.
+
+
+
+
+
+
 
 
 
