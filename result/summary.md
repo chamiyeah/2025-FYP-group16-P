@@ -96,7 +96,7 @@ Using inpainting algorithm combined with morphological and blackhat filtering wo
 Fig 4. Enhanced and Hair removed images sample.
  <br>
 
- Overall, the implemented segmentation technique good results on majority of the sample images. At the same time, the hair removal algorithm removes the pen marks, lines and other similar artifacts from the images, which makes it a great tool for segmentation.
+ Overall, the implemented segmentation technique good results on majority of the sample images. At the same time, the hair removal algorithm removes the pen marks, lines and other similar artifacts from the images, which makes it a great tool for segmentation. <br>
 
 
 

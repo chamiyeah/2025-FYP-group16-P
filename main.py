@@ -7,8 +7,8 @@ from util.inpaint import removeHair
 
 #Data Loader
 data_dir = "data"  # Folder containing all images
-csv_file = "data-student.csv"  # CSV with image group mappings
-filtered_csv = "result/result.csv"  # New CSV with only our group's images
+csv_file = "data-student.csv"  # CSV with image group mappings 
+filtered_csv = "result/selected_sample.csv"  # New CSV with only our group's images
 filtered_dir = "filtered_images"  # Folder for filtered images
 final_output_dir = "result/final_no_hair_images"  # Folder for processed images
 enhanced_dir = "result/enhanced_results"  # Folder to store before/after comparisons
